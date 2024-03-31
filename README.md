@@ -1,7 +1,4 @@
-# SYS-DIPLOM 
-
-![Снимок экрана 2024-03-31 142403](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/0dfb165e-2e58-46a6-9ea4-815125415886)
-
+# SYS-DIPLOM Тихун Вадим 
 
 
 
