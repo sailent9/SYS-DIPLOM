@@ -78,7 +78,7 @@ Application load Balancer:
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/ae719da6-125a-4d5f-b427-8a6c8e38a05f)
 
 
-Curl сайта (Доступен по адресу 158.160.130.232:80):
+Curl сайта (Доступен по адресу 158.160.148.68:80):
 ![Снимок экрана 2024-03-31 164906](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/9511ca23-fd42-4a8c-bd9f-5f66806878fa)
 
 
