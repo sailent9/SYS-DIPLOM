@@ -42,8 +42,7 @@
 ![Снимок экрана 2024-03-24 124850](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/f2c4fe11-4dae-4a43-96e4-f5f97448db29)
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/85d09b38-8208-4d44-8641-e77f2625a59f)
 
-пропинговал сервера через ансибл
-![Снимок экрана 2024-03-31 142403](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/0dfb165e-2e58-46a6-9ea4-815125415886)
+
 
 
 
@@ -118,6 +117,7 @@ Subnet:
 
 
 Bastion Host. Пинги до всех ВМ через бастион хост:
+![Снимок экрана 2024-03-31 142403](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/0dfb165e-2e58-46a6-9ea4-815125415886)
 
 
 ### Резервное копирование
