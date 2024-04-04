@@ -1,0 +1,44 @@
+---
+- name: download nginx log exporter
+  get_url:
+    url: https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v1.11.0/prometheus-nginxlog-exporter_1.11.0_linux_amd64.tar.gz
+    dest: /tmp
+
+- name: unarchive nginx log exporter
+  unarchive:
+    remote_src: yes
+    src: /tmp/prometheus-nginxlog-exporter_1.11.0_linux_amd64.tar.gz
+    dest: /tmp
+
+- name: move nginx log exporter to /usr/bin
+  copy:
+    remote_src: yes
+    src: /tmp/prometheus-nginxlog-exporter
+    dest: /usr/bin/prometheus-nginxlog-exporter
+    owner: root
+    group: root
+    mode: 0755
+
+- name: copy  nginx log exporter config
+  copy:
+    src: /etc/ansible/roles/nginx_logexporter/files/prometheus-nginx-log-exporter.hcl
+    dest: /etc/prometheus-nginxlog-exporter.hcl
+
+- name: install unit file to systemd
+  copy:
+    src: /etc/ansible/roles/nginx_logexporter/files/nginxlog-exporter.service
+    dest: /etc/systemd/system/prometheus-nginxlog-exporter.service
+    owner: root
+    group: root
+    mode: 0600
+  notify: nginxlog-exporter systemd
+
+- name: start prometheus-nginxlog-exporter handlers
+  meta: flush_handlers
+
+- name: Return service state information as fact data
+  service_facts:
+
+- name: Show the status of nginxlog-exporter service
+  debug:
+    var: ansible_facts.services['prometheus-nginxlog-exporter.service']['state']

@@ -1,0 +1,11 @@
+---
+
+- name: "Install nginx"   
+  hosts: webservers                           
+  roles:                                     
+  - include_role:                             
+    name: nginx                             
+    tasks_from: main                          
+
+...    
+       

@@ -1,0 +1,26 @@
+---
+- name: install prometheus
+  apt:
+    name: prometheus
+    update_cache: yes
+    state: latest
+  notify: prometheus systemd
+
+- name: replace prometheus config
+  template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+
+#- name: copy record rules
+#  copy:
+#    src: node-exporter.yml
+#    dest: /etc/prometheus/
+#    mode: 0644
+#  notify: restart prometheus
+
+- name: Return service state information as fact data
+  service_facts:
+
+- name: Show the status of prometheus service
+  debug:
+    var: ansible_facts.services['prometheus.service']['state']

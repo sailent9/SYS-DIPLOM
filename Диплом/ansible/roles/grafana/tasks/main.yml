@@ -1,0 +1,64 @@
+---
+- name: install libfontconfig1
+  apt:
+    name: libfontconfig1
+    update_cache: yes
+    state: latest
+
+- name: copy grafana-enterprise_10.0.3_amd64.deb
+  get_url:
+    url: https://mirror.yandex.ru/mirrors/packages.grafana.com/enterprise/deb/pool/main/g/grafana/grafana_10.0.3_amd64.deb
+    dest: /tmp/grafana-enterprise_10.0.3_amd64.deb
+
+
+- name: install grafana
+  apt:
+    deb: "/tmp/grafana-enterprise_10.0.3_amd64.deb"
+  notify: start grafana
+
+- name: start handlers
+  meta: flush_handlers
+
+- name: copy grafana datasource config
+  template:
+    src: grafana-prometheus-datasource.yml.j2
+    dest: "/etc/grafana/provisioning/datasources/prometheus.yml"
+    owner: root
+    group: grafana
+  notify: restart grafana
+
+- name: copy grafana dashboard
+  copy:
+    src: metrics.json
+    dest: "/etc/grafana/provisioning/dashboards/"
+    owner: root
+    group: grafana
+
+- name: import dashboard NGINX Servers Metrics
+  community.grafana.grafana_dashboard:
+    grafana_url: "http://{{ hostvars['grafana-host'].ansible_host }}:3000"
+    grafana_user: "admin"
+    grafana_password: "admin"
+    state: present
+    commit_message: Updated by ansible
+    overwrite: yes
+    path: /etc/grafana/provisioning/dashboards/metrics.json
+  notify: enable grafana
+
+- name: import dashboard dashboard Node Exporter Full
+  community.grafana.grafana_dashboard:
+    grafana_url: "http://{{ hostvars['grafana-host'].ansible_host }}:3000"
+    grafana_user: "admin"
+    grafana_password: "admin"
+    state: present
+    commit_message: Updated by ansible
+    overwrite: yes
+    dashboard_id: "12486"
+  notify: enable grafana
+
+- name: Return service state information as fact data
+  service_facts:
+
+- name: Show the status of grafana service
+  debug:
+    var: ansible_facts.services['grafana.service']['state']

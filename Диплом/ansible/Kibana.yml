@@ -1,0 +1,6 @@
+- hosts: kibana
+  remote_user: cloud-sailent9
+  become: yes
+  become_method: sudo
+  roles:
+    - kibana

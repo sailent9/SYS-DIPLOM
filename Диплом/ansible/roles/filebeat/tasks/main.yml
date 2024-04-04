@@ -1,0 +1,33 @@
+---
+- name: copy filebeat.deb
+  ansible.builtin.get_url:
+    url: https://mirror.yandex.ru/mirrors/elastic/7/pool/main/f/filebeat/filebeat-7.9.3-amd64.deb
+    dest: /tmp
+
+- name: install filebeat
+  apt:
+    deb: "/tmp/filebeat-7.9.3-amd64.deb"
+
+- name: replace config file
+  template:
+    src: /etc/ansible/roles/filebeat/templates/filebeat.yml.j2
+    dest: /etc/filebeat/filebeat.yml
+  notify:
+    - enable filebeat
+
+- name: setup filebeat
+  shell: 'filebeat setup'
+
+- name: start filebeat
+  systemd:
+    daemon_reload: yes
+    enabled: yes
+    state: started
+    name: filebeat.service
+
+- name: Return service state information as fact data
+  service_facts:
+
+- name: Show the status of filebeat service
+  debug:
+    var: ansible_facts.services['filebeat.service']['state']

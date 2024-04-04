@@ -1,0 +1,13 @@
+- hosts: prometheus
+  remote_user: cloud-sailent9
+  become: yes
+  become_method: sudo
+  roles:
+    - prometheus
+
+- hosts: grafana
+  remote_user: cloud-sailent9
+  become: yes
+  become_method: sudo
+  roles:
+    - grafana

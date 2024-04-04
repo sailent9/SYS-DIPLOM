@@ -1,0 +1,39 @@
+[bastionhost]
+bastion-host ansible_host=158.160.100.27 ansible_ssh_user=cloud-sailent9
+
+[webservers]
+web1 ansible_host=192.168.10.21
+web2 ansible_host=192.168.20.31
+
+[prometheus]
+prometheus-host ansible_host=192.168.30.32
+
+[grafana]
+grafana-host ansible_host=192.168.30.29
+
+[elasticsearch]
+elasticsearch-host ansible_host=192.168.30.24
+
+[kibana]
+kibana-host ansible_host=192.168.30.22
+
+[webservers:vars]
+ansible_ssh_user=cloud-sailent9
+ansible_ssh_common_args='-o ProxyCommand="ssh -p22 -W %h:%p cloud-sailent9@158.160.100.27"'
+
+[prometheus:vars]
+ansible_ssh_user=cloud-sailent9
+ansible_ssh_common_args='-o ProxyCommand="ssh -p22 -W %h:%p cloud-sailent9@158.160.100.27"'
+
+[grafana:vars]
+ansible_ssh_user=cloud-sailent9
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p cloud-sailent9@158.160.100.27"'
+
+[elasticsearch:vars]
+ansible_ssh_user=cloud-sailent9
+ansible_ssh_common_args='-o ProxyCommand="ssh -p22 -W %h:%p cloud-sailent9@158.160.100.27"'
+
+[kibana:vars]
+ansible_ssh_user=cloud-sailent9
+ansible_ssh_common_args='-o ProxyCommand="ssh -p22 -W %h:%p cloud-sailent9@158.160.100.27"'
+
