@@ -41,7 +41,8 @@
 ![Снимок экрана 2024-03-24 162304](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/6cc6a42f-974f-47f4-94aa-02e33f126d74)
 ![Снимок экрана 2024-03-24 124850](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/f2c4fe11-4dae-4a43-96e4-f5f97448db29)
 
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/87f27342-444f-4c20-a259-751d07ad4287)
+
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/e54bd12b-d715-4b31-9376-b44b7d3e56ad)
 
 
 
@@ -95,8 +96,10 @@ Curl сайта (Доступен по адресу 158.160.148.68:80):
 Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
 
 С помощью ansible развернута Prometheus и Grafana (Доступен по адресу 178.154.226.20:3000 admin:netology) : 
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/a68fc0db-6c87-4ed6-aa6e-7d4f7b0b0aa4)
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/14f19d67-fd3e-439d-8703-dd48228799a5)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/2863b116-02ad-487f-84a8-3579e8c4891a)
+
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/6e56ac10-cbe1-42a5-b14c-2403769c0afb)
+
 
 ### Логи
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
@@ -104,8 +107,9 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
 
 С помощью ansible развернут elasticsearch и kibana. Указаны логи Nginx error и Access (Доступен по адресу 51.250.67.210:5601) :
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/0d3db4b2-ef41-467f-82b5-96ca6beed70c)
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/c2084482-b4de-4d5c-8407-fabf8e6fdaad)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/7e21217e-695b-4583-a59e-32d6344b019d)
+
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/e32d1b9b-8c88-4624-aa1f-61005e4db0a1)
 
 
 ### Сеть
@@ -116,11 +120,11 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Настройте ВМ с публичным адресом, в которой будет открыт только один порт — ssh.  Эта вм будет реализовывать концепцию  [bastion host]( https://cloud.yandex.ru/docs/tutorials/routing/bastion) . Синоним "bastion host" - "Jump host". Подключение  ansible к серверам web и Elasticsearch через данный bastion host можно сделать с помощью  [ProxyCommand](https://docs.ansible.com/ansible/latest/network/user_guide/network_debug_troubleshooting.html#network-delegate-to-vs-proxycommand) . Допускается установка и запуск ansible непосредственно на bastion host.(Этот вариант легче в настройке)
 
 Security Group:
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/a2b557c3-20ef-4b21-bc5b-6707486cf58a)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/8b059331-81c8-44eb-9f7a-f16319320e1a)
 
 
 Subnet:
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/c7e85777-2312-4e7f-ac10-7c04a293a0e0)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/e828c016-adad-49df-b212-37eb7ba67cd0)
 
 
 Bastion Host. Пинги до всех ВМ через бастион хост:
@@ -129,7 +133,8 @@ Bastion Host. Пинги до всех ВМ через бастион хост:
 
 ### Резервное копирование
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/9e1a8e00-7cb4-4c14-846e-1b7b7f0ac82e)
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/5db26abe-d510-4e8f-83bb-43b2cfb918aa)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/03c02b59-4200-4fa1-82ca-50a102a79db3)
+
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/946d8d5e-8fa5-4686-923c-9318e7e23e51)
 
 
