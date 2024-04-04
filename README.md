@@ -40,7 +40,8 @@
 
 ![Снимок экрана 2024-03-24 162304](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/6cc6a42f-974f-47f4-94aa-02e33f126d74)
 ![Снимок экрана 2024-03-24 124850](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/f2c4fe11-4dae-4a43-96e4-f5f97448db29)
-![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/85d09b38-8208-4d44-8641-e77f2625a59f)
+
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/87f27342-444f-4c20-a259-751d07ad4287)
 
 
 
@@ -102,6 +103,8 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
 
 С помощью ansible развернут elasticsearch и kibana. Указаны логи Nginx error и Access (Доступен по адресу 158.160.126.196:5601) :
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/0d3db4b2-ef41-467f-82b5-96ca6beed70c)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/c2084482-b4de-4d5c-8407-fabf8e6fdaad)
 
 
 ### Сеть
