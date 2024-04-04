@@ -94,7 +94,7 @@ Curl сайта (Доступен по адресу 158.160.148.68:80):
 
 Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
 
-С помощью ansible развернута Prometheus и Grafana (Доступен по адресу 158.160.60.94:3000 admin:admin) : 
+С помощью ansible развернута Prometheus и Grafana (Доступен по адресу 178.154.226.20:3000 admin:netology) : 
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/a68fc0db-6c87-4ed6-aa6e-7d4f7b0b0aa4)
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/14f19d67-fd3e-439d-8703-dd48228799a5)
 
@@ -103,7 +103,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
 
-С помощью ansible развернут elasticsearch и kibana. Указаны логи Nginx error и Access (Доступен по адресу 158.160.126.196:5601) :
+С помощью ansible развернут elasticsearch и kibana. Указаны логи Nginx error и Access (Доступен по адресу 51.250.67.210:5601) :
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/0d3db4b2-ef41-467f-82b5-96ca6beed70c)
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/c2084482-b4de-4d5c-8407-fabf8e6fdaad)
 
@@ -116,9 +116,11 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Настройте ВМ с публичным адресом, в которой будет открыт только один порт — ssh.  Эта вм будет реализовывать концепцию  [bastion host]( https://cloud.yandex.ru/docs/tutorials/routing/bastion) . Синоним "bastion host" - "Jump host". Подключение  ansible к серверам web и Elasticsearch через данный bastion host можно сделать с помощью  [ProxyCommand](https://docs.ansible.com/ansible/latest/network/user_guide/network_debug_troubleshooting.html#network-delegate-to-vs-proxycommand) . Допускается установка и запуск ansible непосредственно на bastion host.(Этот вариант легче в настройке)
 
 Security Group:
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/a2b557c3-20ef-4b21-bc5b-6707486cf58a)
 
 
 Subnet:
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/c7e85777-2312-4e7f-ac10-7c04a293a0e0)
 
 
 Bastion Host. Пинги до всех ВМ через бастион хост:
@@ -127,4 +129,7 @@ Bastion Host. Пинги до всех ВМ через бастион хост:
 
 ### Резервное копирование
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/9e1a8e00-7cb4-4c14-846e-1b7b7f0ac82e)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/5db26abe-d510-4e8f-83bb-43b2cfb918aa)
+
 
