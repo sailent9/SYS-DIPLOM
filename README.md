@@ -96,6 +96,7 @@ Curl сайта (Доступен по адресу 158.160.148.68:80):
 
 С помощью ansible развернута Prometheus и Grafana (Доступен по адресу 158.160.60.94:3000 admin:admin) : 
 ![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/a68fc0db-6c87-4ed6-aa6e-7d4f7b0b0aa4)
+![image](https://github.com/sailent9/SYS-DIPLOM/assets/130309754/14f19d67-fd3e-439d-8703-dd48228799a5)
 
 ### Логи
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
